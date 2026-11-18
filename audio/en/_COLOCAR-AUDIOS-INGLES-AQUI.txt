@@ -1,0 +1,53 @@
+CARPETA PARA LOS AUDIOS EN INGLÉS
+==================================
+
+Esta carpeta está vacía a propósito.
+
+Mientras no haya audios en inglés, la página funciona igual:
+reproduce el audio en español y le muestra al visitante un aviso
+explicando que la narración está solo en español.
+
+CUANDO GRABES LOS AUDIOS EN INGLÉS:
+
+1. Nómbralos así y colócalos en esta carpeta:
+
+     01-pine-maze.mp3
+     02-guardian-minotaur.mp3
+     03-wooden-maze.mp3
+     04-lavender-maze.mp3
+     05-mirror-maze.mp3
+     06-mini-farm.mp3
+     07-tulip-garden.mp3
+     08-sunflower-garden.mp3
+
+2. Abre script.js y busca el bloque "en" del punto correspondiente.
+   Verás una línea comentada como esta:
+
+     // audioSrc: "audio/en/01-pine-maze.mp3"
+
+   Quítale las dos barras del inicio para activarla:
+
+     audioSrc: "audio/en/01-pine-maze.mp3"
+
+   OJO: si la línea de arriba (description) termina sin coma,
+   agrégale una coma al final antes de descomentar audioSrc.
+   Debe quedar así:
+
+     description:
+       "You stand before our main challenge...",
+     audioSrc: "audio/en/01-pine-maze.mp3"
+
+3. Repite para los 8 puntos.
+
+4. Cuando TODOS los audios en inglés estén listos, puedes quitar
+   el aviso. En script.js, dentro de uiText.en, cambia:
+
+     audioNotice: "Audio narration is currently available..."
+
+   por:
+
+     audioNotice: ""
+
+Puedes activarlos de a uno: los puntos que ya tengan audio en
+inglés lo usarán, y los que no, seguirán con el español más el
+aviso. No es necesario hacerlo todo de una vez.
