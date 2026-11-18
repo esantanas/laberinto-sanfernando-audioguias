@@ -181,6 +181,32 @@ body {
   font-size: 28px;
 }
 
+/* ===================== AVISO DE IDIOMA DEL AUDIO ===================== */
+/* Aparece solo cuando el audio no existe en el idioma elegido. */
+.audio-notice {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  background: var(--color-verde-fondo);
+  border-left: 3px solid var(--color-cafe-claro);
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-texto-suave);
+}
+
+.audio-notice[hidden] {
+  display: none;
+}
+
+/* El botón de idioma inactivo se ve claramente pulsable. */
+.lang-btn {
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lang-btn:not(.active):hover {
+  background: rgba(47, 82, 51, 0.08);
+}
+
 /* ===================== REPRODUCTOR DE AUDIO PERSONALIZADO ===================== */
 .audio-player {
   display: flex;
@@ -327,6 +353,220 @@ body {
   font-size: 13px;
 }
 
+
+/* ============================================================
+   MENÚ LATERAL (DRAWER)
+   Se desliza desde la izquierda. Pensado para el pulgar:
+   todos los destinos quedan en la mitad inferior de la pantalla.
+   ============================================================ */
+
+/* Capa oscura que cubre la página cuando el menú está abierto. */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 30, 20, 0.45);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 40;
+  /* Evita que el dedo haga scroll de la página de atrás. */
+  touch-action: none;
+}
+
+.menu-overlay.open { opacity: 1; }
+.menu-overlay[hidden] { display: none; }
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(82vw, 320px);
+  background: var(--color-blanco);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.18);
+
+  /* Cerrado: fuera de pantalla. */
+  transform: translateX(-100%);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Respeta el notch y la barra inferior del iPhone. */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+}
+
+.side-menu.open { transform: translateX(0); }
+
+.side-menu-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 16px 14px;
+  border-bottom: 1px solid #e7ece5;
+}
+
+.side-menu-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-verde-oscuro);
+}
+
+.side-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.side-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  /* MÓVIL: 56px de alto garantiza un blanco cómodo para el pulgar. */
+  min-height: 56px;
+  text-decoration: none;
+  color: var(--color-texto);
+  font-size: 16px;
+  font-weight: 600;
+  border-left: 4px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.side-menu-item:active {
+  background: var(--color-verde-fondo);
+  border-left-color: var(--color-verde);
+}
+
+/* Opción sin URL configurada todavía: visible pero inactiva. */
+.side-menu-item.disabled {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: auto; /* permitimos el toque para poder bloquearlo en JS */
+}
+
+.side-menu-item.disabled:active {
+  background: transparent;
+  border-left-color: transparent;
+}
+
+.side-menu-icon {
+  font-size: 20px;
+  width: 24px;
+  text-align: center;
+  flex: none;
+}
+
+.side-menu-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 18px;
+  border-top: 1px solid #e7ece5;
+}
+
+.side-menu-foot-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+}
+
+/* Cuando el menú está abierto, bloqueamos el scroll del fondo. */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* ============================================================
+   AJUSTES PARA TELÉFONOS
+   Esta audioguía se usa casi siempre desde un celular, al aire
+   libre y con una sola mano. Estas reglas apuntan a eso.
+   ============================================================ */
+
+html {
+  /* Evita que iOS agrande el texto al girar el teléfono. */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  /* Quita el destello gris al tocar elementos en Android/iOS. */
+  -webkit-tap-highlight-color: transparent;
+  /* Nunca permitir scroll horizontal. */
+  overflow-x: hidden;
+}
+
+/* Todos los elementos tocables con blanco mínimo cómodo. */
+.icon-btn,
+.lang-btn,
+.play-btn,
+.btn {
+  /* Evita el zoom accidental por doble toque. */
+  touch-action: manipulation;
+  /* Evita que el texto del botón quede seleccionado al mantener pulsado. */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.icon-btn {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.lang-btn {
+  min-height: 40px;
+  min-width: 52px;
+}
+
+/* El header respeta el notch superior. */
+.site-header {
+  padding-top: calc(14px + env(safe-area-inset-top));
+}
+
+/* La app respeta la barra inferior del iPhone. */
+.app {
+  padding-bottom: calc(40px + env(safe-area-inset-bottom));
+}
+
+/* El waveform necesita más alto para tocarlo con el dedo. */
+@media (pointer: coarse) {
+  .waveform-canvas {
+    height: 64px;
+  }
+  .waveform-wrap {
+    /* Zona tocable extra arriba y abajo, sin mover el diseño. */
+    padding: 6px 0;
+    margin: -6px 0;
+  }
+  /* El tooltip de tiempo al pasar el mouse no tiene sentido en táctil. */
+  .waveform-progress-time {
+    display: none;
+  }
+}
+
+/* Botones de navegación más altos y separados en pantallas chicas. */
+@media (max-width: 480px) {
+  .btn {
+    min-height: 56px;
+    font-size: 17px;
+  }
+  .play-btn {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* Si el usuario pidió menos animación, la respetamos. */
+@media (prefers-reduced-motion: reduce) {
+  .side-menu,
+  .menu-overlay {
+    transition: none;
+  }
+}
+
 /* ===================== FOOTER ===================== */
 .site-footer {
   text-align: center;
@@ -347,4 +587,9 @@ body {
 @media (max-width: 380px) {
   .point-name { font-size: 24px; }
   .card { padding: 16px; }
+}
+
+.brand {
+  margin-left: auto;
+  margin-right: auto;
 }
