@@ -1,0 +1,350 @@
+/* ============================================================
+   LABERINTO SAN FERNANDO — ESTILOS
+   Paleta: Verde (acento), Café (botones/detalles), Blanco (fondo)
+   ============================================================ */
+
+:root {
+  --color-verde-oscuro:  #2f5233;
+  --color-verde:         #4c7a3f;
+  --color-verde-claro:   #a3c9a8;
+  --color-verde-fondo:   #eef5ec;
+
+  --color-cafe-oscuro:   #4a2f23;
+  --color-cafe:          #6b4226;
+  --color-cafe-claro:    #b98b5e;
+
+  --color-blanco:        #ffffff;
+  --color-fondo:         #f4f7f2;
+  --color-texto:         #2c2c2c;
+  --color-texto-suave:   #6b6b6b;
+
+  --sombra-card: 0 4px 16px rgba(47, 82, 51, 0.10);
+  --radio-card: 20px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+/* ===================== HEADER ===================== */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--color-blanco);
+  border-bottom: 1px solid #e7ece5;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.icon-btn {
+  background: var(--color-fondo);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: var(--color-cafe-oscuro);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-logo {
+  width: 28px;
+  height: 28px;
+}
+
+.brand-name {
+  font-weight: 700;
+  color: var(--color-verde-oscuro);
+  font-size: 15px;
+}
+
+/* ===================== LAYOUT ===================== */
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 18px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===================== CARD (base) ===================== */
+.card {
+  background: var(--color-blanco);
+  border-radius: var(--radio-card);
+  box-shadow: var(--sombra-card);
+  padding: 20px;
+}
+
+.card-title {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: var(--color-cafe-oscuro);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-icon {
+  font-size: 18px;
+}
+
+.card-subtitle {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--color-texto-suave);
+}
+
+.card-text {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--color-texto);
+  font-size: 15px;
+}
+
+/* ===================== TARJETA DE TÍTULO DE PUNTO ===================== */
+.card-point-title {
+  padding-bottom: 22px;
+}
+
+.tour-lang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.lang-label {
+  font-weight: 600;
+  color: var(--color-verde-oscuro);
+  flex: 1;
+}
+
+.lang-toggle {
+  display: flex;
+  background: var(--color-verde-fondo);
+  border-radius: 20px;
+  padding: 3px;
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-verde-oscuro);
+  cursor: pointer;
+}
+
+.lang-btn.active {
+  background: var(--color-verde-oscuro);
+  color: var(--color-blanco);
+}
+
+.point-banner {
+  background: linear-gradient(135deg, var(--color-verde-oscuro), var(--color-verde));
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  color: var(--color-blanco);
+}
+
+.point-index {
+  display: block;
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.point-name {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* ===================== REPRODUCTOR DE AUDIO PERSONALIZADO ===================== */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--color-verde-fondo);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.play-btn {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-cafe);
+  color: var(--color-blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.play-btn:hover { background: var(--color-cafe-oscuro); }
+.play-btn:active { transform: scale(0.94); }
+
+.player-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.player-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.player-track-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-cafe-oscuro);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-source {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--color-verde);
+  font-weight: 700;
+}
+
+.waveform-wrap {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.waveform-canvas {
+  width: 100%;
+  height: 56px;
+  display: block;
+}
+
+.waveform-progress-time {
+  position: absolute;
+  top: -22px;
+  transform: translateX(-50%);
+  background: var(--color-cafe-oscuro);
+  color: var(--color-blanco);
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  white-space: nowrap;
+}
+
+.waveform-progress-time.visible {
+  opacity: 1;
+}
+
+.player-times {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--color-texto-suave);
+  margin-top: 4px;
+}
+
+/* ===================== NAVEGACIÓN ===================== */
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  flex: 1;
+  padding: 16px 10px;
+  border-radius: 16px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-outline {
+  background: var(--color-blanco);
+  color: var(--color-cafe-oscuro);
+  border: 2px solid var(--color-verde-claro);
+  box-shadow: var(--sombra-card);
+}
+
+.btn-solid {
+  background: var(--color-cafe-oscuro);
+  color: var(--color-blanco);
+  box-shadow: var(--sombra-card);
+}
+
+.btn-solid:hover {
+  background: var(--color-cafe);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-arrow {
+  font-size: 13px;
+}
+
+/* ===================== FOOTER ===================== */
+.site-footer {
+  text-align: center;
+  padding: 20px 16px 30px;
+  font-size: 12px;
+  color: var(--color-texto-suave);
+  border-top: 1px solid #e7ece5;
+  background: var(--color-blanco);
+}
+
+.site-footer a {
+  color: var(--color-verde);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 380px) {
+  .point-name { font-size: 24px; }
+  .card { padding: 16px; }
+}
