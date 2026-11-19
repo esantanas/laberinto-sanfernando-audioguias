@@ -91,8 +91,7 @@ const uiText = {
     pauseLabel: "Pause",
     // Aviso que se muestra cuando aún no existe el audio en inglés.
     // Cuando grabes los audios en inglés, puedes dejarlo vacío: "".
-    audioNotice:
-      "Audio narration is currently available in Spanish only. The written text above is in English.",
+    audioNotice: "",
     menuTitle: "Menu",
     menuHome: "Go to home page",
     menuReview: "Rate the maze",
@@ -138,7 +137,7 @@ const tourPoints = [
         "You stand before our main challenge, a living structure sculpted directly from nature. " +
         "Towering pine walls purify the air while hiding the exit among their corridors. " +
         "Breathe in the forest aroma and take on the challenge.",
-      // audioSrc: "audio/en/01-pine-maze.mp3"  <- descomenta cuando lo grabes
+      audioSrc: "audio/en/01-pine-maze.mp3",
     },
   },
   {
@@ -160,7 +159,7 @@ const tourPoints = [
         "Before you rises the mythical figure of Crete, the great symbol of this tour. " +
         "Take in the details of the sculpture and play the audio to discover the fascinating " +
         "story of the monster that gave rise to every maze in the world.",
-      // audioSrc: "audio/en/02-guardian-minotaur.mp3"
+      audioSrc: "audio/en/02-guardian-minotaur.mp3",
     },
   },
   {
@@ -182,7 +181,7 @@ const tourPoints = [
         "These log palisades not only hide the path, they challenge you to cross bridges, " +
         "slacklines and balance posts. A rustic adventure built for true explorers. " +
         "Tighten your shoes, stay focused and show your skill.",
-      // audioSrc: "audio/en/03-wooden-maze.mp3"
+      audioSrc: "audio/en/03-wooden-maze.mp3",
     },
   },
   {
@@ -206,7 +205,7 @@ const tourPoints = [
         "Here violet hues and the natural perfume of the flowers combine to release stress " +
         "and reconnect you with your surroundings. " +
         "Walk slowly, breathe deeply and let the scent be your guide.",
-      // audioSrc: "audio/en/04-lavender-maze.mp3"
+      audioSrc: "audio/en/04-lavender-maze.mp3",
     },
   },
   {
@@ -228,7 +227,7 @@ const tourPoints = [
         "You are about to enter a world of endless illusions. " +
         "All around you, reflections multiply at precise angles to confuse your brain. " +
         "Move calmly, trust your hands and discover what is real and what is only a reflection.",
-      // audioSrc: "audio/en/05-mirror-maze.mp3"
+      audioSrc: "audio/en/05-mirror-maze.mp3",
     },
   },
   {
@@ -250,7 +249,7 @@ const tourPoints = [
         "Elegant peacocks and peaceful young deer welcome you to this corner full of life. " +
         "Discover the mystical history of these animals, the secret of their feathers and the power of their antlers " +
         "while you enjoy their calm.",
-      // audioSrc: "audio/en/06-mini-farm.mp3"
+      audioSrc: "audio/en/06-mini-farm.mp3",
     },
   },
   {
@@ -272,7 +271,7 @@ const tourPoints = [
         "A burst of elegance and colour welcomes you to this springtime corner. " +
         "Discover the fascinating history of tulips, the secret of their symmetry and the origin of their worldwide fame " +
         "while you enjoy their fleeting splendour.",
-      // audioSrc: "audio/en/07-tulip-garden.mp3"
+      audioSrc: "audio/en/07-tulip-garden.mp3",
     },
   },
   {
@@ -294,7 +293,7 @@ const tourPoints = [
         "Towering golden giants welcome you to this corner full of light and energy. " +
         "Discover the sacred history of sunflowers, the mystery of their dance following the sun " +
         "and their perfect geometry as you take in their summer warmth.",
-      // audioSrc: "audio/en/08-sunflower-garden.mp3"
+      audioSrc: "audio/en/08-sunflower-garden.mp3",
     },
   },
 ];
